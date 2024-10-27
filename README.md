@@ -27,6 +27,17 @@ modifierOverrider {
 }
 ```
 
+- `affectedPackages` : List of packages to be affected.
+- `printDebugInfo` : Print debug info.
+- `overriderClassPath` : The package name of the overrider class.
+- `overriderClassEntryFunctionName` : The entry function name of the overrider class.
+- `affectedVariants` : List of affected variants.
+- `affectedVariantsStrictCheck` : Strict check for the affected variants, case-sensitive or not, contains or equals.
+    - for example, if `affectedVariants` is `listOf("test")` and `affectedVariantsStrictCheck` is `true`, then only the
+      variant `test` will be affected.
+    - if `affectedVariants` is `listOf("test")` and `affectedVariantsStrictCheck` is `false`, then the variants `test`,
+      `Test`, `testDebug` will be affected.
+
 
 ```kotlin
 package dev.supersam
@@ -46,20 +57,6 @@ object ModifierHelper {
     }
 }
 ```
-
-### Explanation.
-
-- `affectedPackages` : List of packages to be affected.
-- `printDebugInfo` : Print debug info.
-- `overriderClassPath` : The package name of the overrider class.
-- `overriderClassEntryFunctionName` : The entry function name of the overrider class.
-- `affectedVariants` : List of affected variants.
-- `affectedVariantsStrictCheck` : Strict check for the affected variants, case-sensitive or not, contains or equals.
-    - for example, if `affectedVariants` is `listOf("test")` and `affectedVariantsStrictCheck` is `true`, then only the
-      variant `test` will be affected.
-    - if `affectedVariants` is `listOf("test")` and `affectedVariantsStrictCheck` is `false`, then the variants `test`,
-      `Test`, `testDebug` will be affected.
-
 - in `ModifierHelper.kt` file.
 - You can call the object `ModifierHelper` anything you want, but the function name should be the same as the
   `overriderClassEntryFunctionName` in the `build.gradle.kts` file.
@@ -68,3 +65,14 @@ object ModifierHelper {
 - The `override` function should have the same signature as the below function.
 - the `buildModifier` function is used to build the modifier, you can add your custom logic here, this will be called
   each time a composition happens.
+  
+#### Generated Apk running with the instrumented code.
+<img width="379" alt="image" src="https://github.com/user-attachments/assets/1dbc845a-2901-4fc7-8c63-c2026718ae10">
+
+#### Semantics for usage within `maestro studio` for example and other accessbility based apps.
+<img width="721" alt="image" src="https://github.com/user-attachments/assets/d88e6132-8c53-414e-9c27-053f8d9826c2">
+
+#### Original code
+<img width="786" alt="image" src="https://github.com/user-attachments/assets/7cc30bfa-0e20-45b7-b759-238422b700ea">
+
+
