@@ -12,9 +12,7 @@ plugins {
     //....
     alias(libs.plugins.modifierOverrider)
 }
-```
 
-```kotlin
 modifierOverrider {
     affectedPackages = listOf("dev.supersam")
     printDebugInfo = true
