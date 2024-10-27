@@ -1,11 +1,9 @@
 # modifierOverrider
 
-#### This plugin is used to override the modifier of the `composposable` functions in the specified package and with a
+### This plugin is used to override the modifier of the `composposable` functions in the specified package and with a specified criteria, for testing, debugging, development purposes, the used example is for adding semantics to the UI without changing the code.
 
-specified criteria, for testing, debugging, development purposes, the used example is for adding semantics to the UI
-without changing the code.
 
-### Running the example app.
+#### Running the example app.
 
 - in `build.gradle.kts` of the android app.
 
